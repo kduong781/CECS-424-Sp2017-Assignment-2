@@ -16,15 +16,15 @@ def main():
           move = input("Press space to move and s to confirm?\n")
           cursor[cursorPosition] = " "
           if move == " ":
-              if cursorPosition + 1 > 11: #puts cursor in beginning if you go over
+              if cursorPosition + 1 > 11: #puts cursor in beginning if you go over array size
                   cursor[cursorPosition] = " "
                   cursorPosition = 0
                   cursor[cursorPosition] = "-"
                   move = "reset"
               else:
                   cursorPosition = cursorPosition + 1
-          elif move == "s":
-               if coinArray[cursorPosition] == "-" or coinArray[cursorPosition+1] == "-" or cursorPosition > 10 : #rules for selecting( cant select a gap
+          elif move == "s": #if you presss select
+               if coinArray[cursorPosition] == "-" or coinArray[cursorPosition+1] == "-" or cursorPosition > 10 : #rules for selecting( cant select a gap, etc)
                   print("invalid choose again")
                   cursor[cursorPosition] = " "
                   cursorPosition = 0
@@ -36,7 +36,7 @@ def main():
               print("Please type left or right.")
           cursor[cursorPosition] = "-"
 
-          printCoins(coinArray)
+          printCoins(coinArray) #prints coins and cursor position
           print("")
           printCursor(cursor)
 
@@ -59,7 +59,7 @@ def main():
       #end reset
 
       print("")
-      printCoins(coinArray)
+      printCoins(coinArray) #prints coins and cursor position
       print("")
       printCursor(cursor)
 
@@ -67,23 +67,26 @@ def main():
   check = ""
   for coin in coinArray:
       check = check + coin
+
+  ##Win/Lose Condition
   if check == "HTHTHTHTHT--" or check == "THTHTHTHTH--":
       print("You win")
   elif check == "--HTHTHTHTHT" or check == "--THTHTHTHTH":
       print("You win")
   else:
       print("You Lose")
+  #end win/lose conditions
 
 
-def printCoins(coinArray):
+def printCoins(coinArray): #prints coins
   for coin in coinArray:
       print(coin,end='')
 
-def printCursor(cursor):
+def printCursor(cursor): #prints cursor position
   for i in cursor:
       print(i,end='')
 
 
-main()
+main() #starts main
 
 
