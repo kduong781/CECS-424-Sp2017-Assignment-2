@@ -1,5 +1,4 @@
-import sys
-from msvcrt import getch
+#Kevin Duong 011715000
 def main():
   gapPosition = 10
   gapPosition2 = 11
@@ -8,9 +7,10 @@ def main():
   cursor = ["-","  "," "," "," "," "," "," "," "," ", " "," "]
   printCoins(coinArray)
   moves = 0
-  while moves != 5:
+  while moves <= 5:
       move = "left"
       while not move == "s":
+          print("\nMove: ", moves)
           print("\nChoose which coin to move")
           #temp = cursorPosition
           move = input("Press space to move and s to confirm?\n")
